@@ -11,10 +11,9 @@ import javax.servlet.annotation.WebListener;
 
 @WebListener
 public class ServletListener implements ServletContextListener {
-
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        User admin = new UserData("admin", "12345", "admin", "관리자");
-        UserDataRepostiory.getInstance().getUserDataMap().put(admin.getId(), admin);
+        User admin = new UserData("admin", "12345", "admin", "admin");
+        UserDataRepostiory.getInstance().add(admin);
     }
 }

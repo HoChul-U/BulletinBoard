@@ -21,6 +21,7 @@ public class LoginPostController implements Command {
                 session.setAttribute("checkAdmin",adminCheck(user));
                 session.setAttribute("user", user);
                 session.setAttribute("posts", PostDataRepository.getInstance().getPosts());
+                session.setAttribute("users", UserDataRepostiory.getInstance().getUsers());
                 return "re:/board.do";
             }
         }

@@ -43,5 +43,6 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:1.2.4" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: jakarta.el:jakarta.el-api:3.0.2" level="project" />
     <orderEntry type="library" name="Maven: org.assertj:assertj-core:3.22.0" level="project" />
+    <orderEntry type="library" name="Maven: net.sargue:java-time-jsptags:1.1.4" level="project" />
   </component>
 </module>

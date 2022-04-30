@@ -13,7 +13,6 @@
         <span>사진을 기입하세요<input type="file" name="profile"></span><br>
         <button type="submit">회원가입</button>
     </form>
-
 </span>
 </body>
 </html>

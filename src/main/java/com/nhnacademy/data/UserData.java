@@ -1,6 +1,6 @@
 package com.nhnacademy.data;
 
-public class UserData implements User{
+public class UserData implements User {
     private String id;
     private String pwd;
     private String name;
