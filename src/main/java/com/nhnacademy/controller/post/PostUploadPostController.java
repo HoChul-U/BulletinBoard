@@ -32,9 +32,6 @@ public class PostUploadPostController implements Command {
             log.error("count"+count);
             makePostData(title, context, userData, count);
             session.setAttribute("posts", PostDataRepository.getInstance().getPosts());
-            for (User user : UserDataRepostiory.getInstance().getUsers()) {
-                log.error(user.getId());
-            }
         }
         return "re:/postUpload.do";
     }

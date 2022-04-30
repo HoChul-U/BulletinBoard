@@ -17,9 +17,8 @@ public class AdminMemberModifyController implements Command {
         String id = req.getParameter("id");
         if(Objects.nonNull(session)){
             if((UserDataRepostiory.getInstance().getUser(id).getId()).contains(id)){
-                User user = new UserData(id,
-                        req.getParameter("pwd"), req.getParameter("name"),"");
-                UserDataRepostiory.getInstance().modify(user);
+                User user = new UserData(req.getParameter("c_id"), req.getParameter("pwd"), req.getParameter("name"),"");
+                UserDataRepostiory.getInstance().modify(user,id);
             }
             session.setAttribute("userlist",UserDataRepostiory.getInstance().getUsers());
         }

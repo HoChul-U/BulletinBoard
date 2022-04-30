@@ -28,12 +28,12 @@ public class UserDataRepostiory implements UserRepository{
     }
 
     @Override
-    public void modify(User user){
-        if(userDataMap.containsKey(user.getId())){
+    public void modify(User user,String id){
+        if(userDataMap.containsKey(id)){
             getUserDataMap().put(user.getId(), user);
+            getUserDataMap().remove(id);
         }
         else throw new IllegalStateException();
-
     }
 
     @Override

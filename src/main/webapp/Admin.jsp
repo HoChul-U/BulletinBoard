@@ -33,17 +33,16 @@
 </form>
 <form method="post" action="/adminMembershipFix.do">
     <span>조회할 ID를 입력하세여<input type="text" name="id"><br></span>
+    <span>변경할 ID를 입력하세여<input type="text" name="c_id"><br></span>
     <span>변경하실 PWD를 입력하세요<input type="text" name="pwd"><br></span>
     <span>변경하실 이름을 기입하세요<input type="text" name="name"><br></span>
 <%--    <span>사진을 기입하세요<input type="file" name="profile"></span><br>--%>
     <button type="submit">사용자수정</button>
 </form>
-<form method="post" action="/adminMembership.do">
-    <span>ID를 입력하세여<input type="text" name="id"><br></span>
-    <span>PWD를 입력하세요<input type="text" name="pwd"><br></span>
-    <span>이름을 기입하세요<input type="text" name="name"><br></span>
-<%--    <span>사진을 기입하세요<input type="file" name="profile"></span><br>--%>
-    <button type="submit">사용자추가</button>
+<form method="post" action="/adminMembershipRemove.do">
+    <span>삭제할 ID를 입력하세요<input type="text" name="id"><br></span>
+  <%--    <span>사진을 기입하세요<input type="file" name="profile"></span><br>--%>
+    <button type="submit">사용자삭제</button>
 </form>
 </body>
 </html>

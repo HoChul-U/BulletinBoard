@@ -18,17 +18,30 @@
         <th>번호</th>
         <th>글쓴이</th>
         <th>업로드 시간</th>
-        <th>글읽은수</th>
+        <th colspan="3">글읽은수</th>
     </tr>
     </thead>
     <tbody>
     <c:forEach var="post" items="${posts}">
         <tr>
-            <td>${post.title}</td>
+            <td><a href="/showContent.do?content=${post.id}">${post.title}</a></td>
             <td>${post.id}</td>
             <td>${post.writerUserId}</td>
-            <td><javatime:format value="${post.writeTime}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
+            <td><javatime:format value="${post.writeTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
             <td>${post.viewCount}</td>
+            <td>
+                <form action="/boardRemove.do" method="post">
+                    <input type="hidden" name="postId" value="${post.id}"/>
+                    <button type="submit" name="remove_btn" value="${post.writerUserId}">삭제</button>
+                </form>
+            </td>
+            <td>
+                <form action="/boardModify.do" method="post">
+                    <input type="hidden" name="modifyId" value="${post.id}"/>
+                    <button type="submit" name="modify_btn" value="${post.writerUserId}">수정</button>
+                </form>
+            </td>
+
         </tr>
     </c:forEach>
     </tbody>
