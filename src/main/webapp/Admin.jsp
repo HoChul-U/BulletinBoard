@@ -1,18 +1,20 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<fmt:setLocale value="${lang}"/>
 <html>
 <head>
-    <title>여기가 열려야 한다.</title>
+    <title></title>
 </head>
 <body>
-<span><h1>관리자 화면</h1></span>
-<a href="LoginForm.jsp">로그인 페이지로</a>
+<span><h1><fmt:message key="adminPage" bundle="${msg}"/></h1></span>
+<a href="LoginForm.jsp"><fmt:message key="goLoginPage" bundle="${msg}"/></a>
 <table border="1px">
     <thead>
     <tr>
-        <th>아이디</th>
-        <th>이름</th>
-        <th>프로필사진</th>
+        <th><fmt:message key="adminPage" bundle="${msg}"/></th>
+        <th><fmt:message key="name" bundle="${msg}"/></th>
+        <th><fmt:message key="profileImg" bundle="${msg}"/></th>
     </tr>
     </thead>
     <tbody>
@@ -20,29 +22,31 @@
         <tr>
             <td>${user.id}</td>
             <td>${user.name}</td>
+            <td><img src="/loadImage.do?file=${user.id}", width="50" height="50"/></td>
         </tr>
     </c:forEach>
     </tbody>
 </table>
-<form method="post" action="/adminMembership.do">
-    <span>ID를 입력하세여<input type="text" name="id"><br></span>
-    <span>PWD를 입력하세요<input type="text" name="pwd"><br></span>
-    <span>이름을 기입하세요<input type="text" name="name"><br></span>
-<%--    <span>사진을 기입하세요<input type="file" name="profile"></span><br>--%>
-    <button type="submit">사용자추가</button>
+<form method="post" action="/adminMembership.do"  enctype="multipart/form-data">
+    <span><fmt:message key="inputID" bundle="${msg}"/><input type="text" name="id" required><br></span>
+    <span><fmt:message key="intputPWD" bundle="${msg}"/><input type="text" name="pwd" required><br></span>
+    <span><fmt:message key="inputName" bundle="${msg}"/><input type="text" name="name" required><br></span>
+    <span><fmt:message key="inputPoto" bundle="${msg}"/><input type="file" name="profile" enctype="multipart/form-data" required></span><br>
+    <button type="submit"><fmt:message key="addUser" bundle="${msg}"/></button>
 </form>
-<form method="post" action="/adminMembershipFix.do">
-    <span>조회할 ID를 입력하세여<input type="text" name="id"><br></span>
-    <span>변경할 ID를 입력하세여<input type="text" name="c_id"><br></span>
-    <span>변경하실 PWD를 입력하세요<input type="text" name="pwd"><br></span>
-    <span>변경하실 이름을 기입하세요<input type="text" name="name"><br></span>
-<%--    <span>사진을 기입하세요<input type="file" name="profile"></span><br>--%>
-    <button type="submit">사용자수정</button>
+
+<form method="post" action="/adminMembershipFix.do" enctype="multipart/form-data">
+    <span><fmt:message key="enterIdToQuery" bundle="${msg}"/><input type="text" name="id" required><br></span>
+    <span><fmt:message key="enterIdToChange" bundle="${msg}"/><input type="text" name="c_id" required><br></span>
+    <span><fmt:message key="enterPwdToChange" bundle="${msg}"/><input type="text" name="pwd" required><br></span>
+    <span><fmt:message key="enterNameToChange" bundle="${msg}"/><input type="text" name="name" required ><br></span>
+    <span><fmt:message key="inputPoto" bundle="${msg}"/><input type="file" name="profile" required enctype="multipart/form-data"></span><br>
+    <button type="submit"><fmt:message key="fixUser" bundle="${msg}"/></button>
 </form>
+
 <form method="post" action="/adminMembershipRemove.do">
-    <span>삭제할 ID를 입력하세요<input type="text" name="id"><br></span>
-  <%--    <span>사진을 기입하세요<input type="file" name="profile"></span><br>--%>
-    <button type="submit">사용자삭제</button>
+    <span><fmt:message key="enterIdtoDelete" bundle="${msg}"/><input type="text" name="id"><br></span>
+    <button type="submit"><fmt:message key="userDelete" bundle="${msg}"/></button>
 </form>
 </body>
 </html>

@@ -19,7 +19,7 @@ public class BoardModifyController implements Command {
         String postWriter = req.getParameter("modify_btn");
         if (user.getId().contains(postWriter) || postWriter.contains("admin")) {
             Post updatePost = PostDataRepository.getInstance().getPost(
-                Long.parseLong(postId));
+                    Long.parseLong(postId));
             session.setAttribute("updatePost",updatePost);
             return "PostUpdate.jsp";
         }

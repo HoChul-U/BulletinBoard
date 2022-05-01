@@ -22,5 +22,7 @@ public class BullentinBoardInitalizer implements ServletContainerInitializer {
     public void onStartup(Set<Class<?>> set, ServletContext servletContext)
         throws ServletException {
         servletContext.setAttribute("count",0L);
+        servletContext.setAttribute("lang","en");
+        servletContext.setAttribute("loginCount",0);
     }
 }

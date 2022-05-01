@@ -19,4 +19,3 @@ public class LoginProcessController implements Command {
         }
     }
 }
-

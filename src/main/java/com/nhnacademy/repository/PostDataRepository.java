@@ -1,12 +1,14 @@
 package com.nhnacademy.repository;
 
 import com.nhnacademy.board.Post;
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+@Slf4j
 public class PostDataRepository implements PostRepository{
     private static final PostDataRepository post = new PostDataRepository();
 
@@ -24,12 +26,15 @@ public class PostDataRepository implements PostRepository{
     @Override
     public long register(Post post) {
         postRepository.put(post.getId(),post);
+        log.error(PostDataRepository.getInstance().getPostRepository().entrySet()+"");
+        log.error(postRepository.get(post.getId()).getId()+"");
         return postRepository.get(post.getId()).getId();
     }
 
     @Override
-    public void modify(Post post) {
-        if(postRepository.containsKey(post.getId())){
+    public void modify(Post post, long id) {
+        if(postRepository.containsKey(id)){
+            postRepository.remove(id);
             postRepository.put(post.getId(), post);
         }else throw new IllegalStateException();
     }

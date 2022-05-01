@@ -27,3 +27,9 @@ m
 =.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_11.xml,5\e\5ed1c00bded3571f661e3c3911c0cbe44c07eeb9
 p
 @.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_11.xml,8\c\8ccbb9388e386e6f3944c782e3d5a9dd5c13aeae
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+v
+Fsrc/main/java/com/nhnacademy/controller/post/UserModifyController.java,e\e\ee90536090a33760ffefbad9a86cab3ebeed8486
+\
+,src/main/java/com/nhnacademy/board/Post.java,2\2\2276c1e70a53fb00f560514e9e10e8b3904edf12

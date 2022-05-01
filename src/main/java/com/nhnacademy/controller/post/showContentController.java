@@ -7,9 +7,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class showContentController implements Command {
+    private String content;
+
+    public showContentController(String content) {
+        this.content = content;
+    }
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse resp) {
-        Long id = Long.parseLong(req.getParameter("content"));
+        Long id = Long.parseLong(content);
         PostDataRepository.getInstance().getPost(id).increaseViewCount();
         HttpSession session = req.getSession(false);
         session.setAttribute("postTitle",PostDataRepository.getInstance().getPost(id).getTitle());
